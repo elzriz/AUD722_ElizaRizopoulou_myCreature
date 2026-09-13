@@ -2,6 +2,11 @@
 
 Cicada : Creature {
 
+// custom sample
+    *fileName {
+        ^"cicada.wav";
+    }
+
 // slow sparse clicks
     dawn {
         this.substitute({
