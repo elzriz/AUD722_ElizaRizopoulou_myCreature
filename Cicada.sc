@@ -2,6 +2,7 @@
 
 Cicada : Creature {
 
+// slow sparse clicks
     dawn {
         this.substitute({
             var trig, sig, pan;
@@ -13,6 +14,7 @@ Cicada : Creature {
         }.play, 0.8);
     }
 
+// fast continuous buzz
     day {
         this.substitute({
             var heatSwell, tymbalPulse, sig, pan;
@@ -25,6 +27,7 @@ Cicada : Creature {
         }.play, 0.6);
     }
 
+// slower evening pulse
     dusk {
         this.substitute({
             var breathingSwell, tymbalPulse, sig, pan;
@@ -37,10 +40,12 @@ Cicada : Creature {
         }.play, 0.8);
     }
 
+// silence
     night {
         this.release(1.5);
     }
 
+// fast jitter panic
     danger {
         this.substitute({
             var stutter, pitchJitter, sig, pan;
