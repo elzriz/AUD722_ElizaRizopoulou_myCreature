@@ -1,4 +1,4 @@
-//Eliza Rizopoulou TX2019011
+ // Eliza Rizopoulou TX2019011
 
 Cicada : Creature {
 
@@ -9,8 +9,8 @@ Cicada : Creature {
             pan = TRand.kr(-0.8, 0.8, trig);
             sig = PlayBuf.ar(1, this.buffer, rate: TRand.kr(0.9, 1.2, trig) * BufRateScale.kr(this.buffer), trigger: trig, loop: 0);
             sig = sig * EnvGen.kr(Env.perc(0.005, 0.08), trig);
-            Pan2.ar((sig * 12.0).tanh, pan);
-        }.play, releaseTime: 0.8);
+            Pan2.ar((sig * 18.0).tanh, pan);
+        }.play, 0.8);
     }
 
     day {
@@ -21,19 +21,20 @@ Cicada : Creature {
             pan = SinOsc.kr(0.07).range(-0.55, 0.55);
             sig = PlayBuf.ar(1, this.buffer, rate: 1.3 * BufRateScale.kr(this.buffer), loop: 1);
             sig = sig * tymbalPulse * heatSwell;
-            Pan2.ar((sig * 16.0).tanh, pan);
-        }.play, releaseTime: 0.5);
+            Pan2.ar((sig * 22.0).tanh, pan);
+        }.play, 0.6);
     }
 
     dusk {
         this.substitute({
-            var rhythm, sweep, sig;
-            rhythm = LFPulse.ar(18, 0, 0.55).range(0.3, 1.0);
-            sweep = SinOsc.kr(0.2).range(-0.6, 0.6);
-            sig = PlayBuf.ar(1, this.buffer, rate: 0.82 * BufRateScale.kr(this.buffer), loop: 1);
-            sig = sig * rhythm * 16.0;
-            Pan2.ar(sig.tanh, sweep);
-        }.play, releaseTime: 0.8);
+            var breathingSwell, tymbalPulse, sig, pan;
+            tymbalPulse = LFTri.ar(16).range(0.3, 1.0);
+            breathingSwell = SinOsc.kr(0.25).range(0.3, 1.0);
+            pan = SinOsc.kr(0.05).range(-0.35, 0.35);
+            sig = PlayBuf.ar(1, this.buffer, rate: 1.0 * BufRateScale.kr(this.buffer), loop: 1);
+            sig = sig * tymbalPulse * breathingSwell;
+            Pan2.ar((sig * 28.0).tanh, pan);
+        }.play, 0.8);
     }
 
     night {
@@ -48,7 +49,7 @@ Cicada : Creature {
             pan = LFNoise1.kr(8).range(-0.95, 0.95);
             sig = PlayBuf.ar(1, this.buffer, rate: pitchJitter, loop: 1);
             sig = sig * stutter;
-            Pan2.ar((sig * 18.0).tanh, pan);
-        }.play, releaseTime: 0.15);
+            Pan2.ar((sig * 24.0).tanh, pan);
+        }.play, 0.15);
     }
 }
